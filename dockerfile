@@ -8,6 +8,8 @@ RUN npm install
 
 COPY server.mjs ./
 
+COPY *.pem ./
+
 EXPOSE 80
 
 CMD [ "node", "server.mjs" ]
