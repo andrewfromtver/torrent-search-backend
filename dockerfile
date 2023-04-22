@@ -10,6 +10,6 @@ COPY server.mjs ./
 
 COPY *.pem ./
 
-EXPOSE 80
+EXPOSE 443
 
 CMD [ "node", "server.mjs" ]

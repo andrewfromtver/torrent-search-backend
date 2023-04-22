@@ -31,7 +31,7 @@ app.use(cors({
 }));
 const server = https.createServer(options, app);
 server.timeout = 30000
-server.listen(8443);
+server.listen(443);
 
 app.get("/api/torrent-search", (req, resp) => {
     const query = req.query.q;
