@@ -3,8 +3,6 @@
 import express from 'express';
 import cors from 'cors';
 import http from 'http';
-import https from 'https';
-import fs from 'fs';
 import TorrentSearchApi from 'torrent-search-api';
 
 TorrentSearchApi.enablePublicProviders();
@@ -20,18 +18,13 @@ const torrentSearch = async (query, type, calback = () => {}) => {
     getMagnet(torrent[0], calback)
 }
 
-let options = {
-    key: fs.readFileSync('key.pem'),
-    cert: fs.readFileSync('cert.pem')
-};
-
 const app = express();
 app.use(cors({
     origin: '*'
 }));
-const server = https.createServer(options, app);
+const server = http.createServer(app);
 server.timeout = 30000
-server.listen(443);
+server.listen(80);
 
 app.get("/api/torrent-search", (req, resp) => {
     const query = req.query.q;
