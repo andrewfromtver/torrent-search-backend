@@ -5,23 +5,32 @@ networks:
     driver: bridge
 
 services:
+
   proxy:
     container_name: proxy
     image: nginx
     volumes:
+      - ./nginx/index.html:/usr/share/nginx/html/index.html:ro
       - ./nginx/nginx.conf:/etc/nginx/conf.d/default.conf:ro
       - ./ssl/cert.pem:/etc/ssl/cert.pem:ro
       - ./ssl/key.pem:/etc/ssl/key.pem:ro
     networks:
       - mirror
     ports:
-#      - 0.0.0.0:80:80
+      - 0.0.0.0:80:80
       - 0.0.0.0:443:443
     restart: unless-stopped
 
   api:
     container_name: api
     build: ./api
+    networks:
+      - mirror
+    restart: unless-stopped
+
+  webtorrent:
+    container_name: webtorrent
+    build: ./webtorrent
     networks:
       - mirror
     restart: unless-stopped

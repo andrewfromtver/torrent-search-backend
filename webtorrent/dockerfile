@@ -1,6 +1,6 @@
 FROM node:18
 
-WORKDIR /usr/src/torrent-search-api
+WORKDIR /usr/src/webtorrent
 
 COPY package*.json ./
 
