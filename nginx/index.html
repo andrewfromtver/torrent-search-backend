@@ -1,20 +1,24 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Torrent Search API</title>
-</head>
-<body>
+  </head>
+  <body>
     <form action="/api/torrent/webtor" method="get" target="search_result">
-        <select name="type">
-            <option value="Movies">Movies</option>
-            <option value="All">All</option>
-        </select>
-        <input name="query" type="text">
-        <button type="submit">Search</button>
+      <select name="type">
+        <option value="Movies">Movies</option>
+        <option value="All">All</option>
+      </select>
+      <input name="query" type="text" />
+      <button type="submit">Search</button>
     </form>
-    <iframe name="search_result" sandbox="allow-scripts allow-same-origin"></iframe>
-</body>
+    <iframe
+      style="width: 1270px; height: 720px; margin: 64px auto"
+      name="search_result"
+      sandbox="allow-scripts allow-same-origin"
+    ></iframe>
+  </body>
 </html>
