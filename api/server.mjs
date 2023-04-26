@@ -85,12 +85,7 @@ app.get("/api/torrent/webtor", (req, resp) => {
               </body>
             </html>
         `;
-        resp.send({
-          status: "OK",
-          msg: `Magnet search by type - ${type} and query - ${query} processed successfully`,
-          result: result,
-          html: htmlPage,
-        });
+        resp.send(htmlPage);
       });
     } catch (error) {
       resp.send({
